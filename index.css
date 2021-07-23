@@ -1,0 +1,13 @@
+body {
+  margin: 0;
+}
+.canvas1 {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+}
+.canvas2 {
+  border: solid 1px #ccc;
+  background-color: #600;
+}

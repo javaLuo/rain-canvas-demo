@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0" />
+    <link rel="stylesheet" href="./index.css" />
+    <title>rain</title>
+  </head>
+  <body>
+    <canvas id="canvas1" class="canvas1"></canvas>
+    <script src="node_modules/simplex-noise/simplex-noise.js"></script>
+    <script type="module">
+      import Tools from "./index.js";
+
+      Tools.initNoise();
+      const { canvas, ctx } = Tools.init("canvas1");
+      const textures = Tools.makeOneRain();
+      console.log("textures:", textures);
+      let time = 0;
+      let y = 0;
+      console.log("textures[i.y", textures[0]);
+      // 动画循环
+      function animate() {
+        requestAnimationFrame(animate);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (let i = textures.length - 1; i >= 0; i--) {
+          textures[i].y += textures[i].speed;
+          textures[i].y2 += textures[i].speed;
+          if (textures[i].y > canvas.height) {
+            textures[i].y = -textures[i].canvas.height;
+            textures[i].x = Math.random() * 100 - 50;
+            textures[i].speed = Math.random() * 6 - 3 + textures[i].speed_p;
+          }
+          if (textures[i].y2 > canvas.height) {
+            textures[i].y2 = -textures[i].canvas.height;
+            textures[i].x2 = Math.random() * 100 - 50;
+          }
+          ctx.save();
+          ctx.globalAlpha = textures[i].opacity;
+          ctx.drawImage(textures[i].canvas, textures[i].x, textures[i].y, textures[i].canvas.width, textures[i].canvas.height);
+          ctx.drawImage(textures[i].canvas, textures[i].x2, textures[i].y2, textures[i].canvas.width, textures[i].canvas.height);
+          ctx.restore();
+        }
+      }
+
+      animate();
+    </script>
+  </body>
+</html>

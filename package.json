@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "simplex-noise": "^2.4.0",
+    "stackblur-canvas": "^2.5.0"
+  }
+}
