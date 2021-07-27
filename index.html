@@ -25,20 +25,14 @@
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         for (let i = textures.length - 1; i >= 0; i--) {
           textures[i].y += textures[i].speed;
-          textures[i].y2 += textures[i].speed;
           if (textures[i].y > canvas.height) {
             textures[i].y = -textures[i].canvas.height;
-            textures[i].x = Math.random() * 100 - 50;
-            textures[i].speed = Math.random() * 6 - 3 + textures[i].speed_p;
-          }
-          if (textures[i].y2 > canvas.height) {
-            textures[i].y2 = -textures[i].canvas.height;
-            textures[i].x2 = Math.random() * 100 - 50;
+            textures[i].x = Math.random() * 200 - 100;
+            textures[i].speed = textures[i].speed_p;
           }
           ctx.save();
           ctx.globalAlpha = textures[i].opacity;
           ctx.drawImage(textures[i].canvas, textures[i].x, textures[i].y, textures[i].canvas.width, textures[i].canvas.height);
-          ctx.drawImage(textures[i].canvas, textures[i].x2, textures[i].y2, textures[i].canvas.width, textures[i].canvas.height);
           ctx.restore();
         }
       }

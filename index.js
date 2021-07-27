@@ -57,21 +57,27 @@ export const makeOneRain = () => {
       imageData.data[index + 3] = noise; // A
     }
   }
-  console.log("aaabb");
 
-  console.log("imageData:", imageData);
   ctx.putImageData(imageData, 0, 0);
-  console.log("imageData没了？", imageData);
 
   const canvas1 = makeOtherRain(imageData, w, h, 0);
   const canvas2 = makeOtherRain(imageData, w, h, 4);
   const canvas3 = makeOtherRain(imageData, w, h, 8);
   const canvas4 = makeOtherRain(imageData, w, h, 16);
+  const canvas5 = makeOtherRain(imageData, w, h, 24);
   return [
-    { canvas: canvas1, speed: 20, speed_p: 20, opacity: 0.4, y: 0, y2: -h + 80, x: 0, x2: 0 },
-    { canvas: canvas2, speed: 16, speed_p: 16, opacity: 0.2, y: 0, y2: -h + 80, x: 0, x2: 0 },
-    { canvas: canvas3, speed: 8, speed_p: 8, opacity: 0.1, y: 0, y2: -h + 80, x: 0, x2: 0 },
-    { canvas: canvas4, speed: 4, speed_p: 4, opacity: 0.1, y: 0, y2: -h + 80, x: 0, x2: 0 },
+    { canvas: canvas1, speed: 20, speed_p: 20, opacity: 0.4, y: 0, x: 0 },
+    { canvas: canvas1, speed: 20, speed_p: 20, opacity: 0.4, y: -h + 80, x: 0 },
+    { canvas: canvas1, speed: 18, speed_p: 18, opacity: 0.3, y: 0, x: 0 },
+    { canvas: canvas1, speed: 18, speed_p: 18, opacity: 0.3, y: -h + 80, x: 0 },
+    { canvas: canvas2, speed: 14, speed_p: 14, opacity: 0.25, y: 0, x: 0 },
+    { canvas: canvas2, speed: 14, speed_p: 14, opacity: 0.25, y: -h + 80, x: 0 },
+    { canvas: canvas3, speed: 8, speed_p: 8, opacity: 0.2, y: 0, y2: -h + 80, x: 0 },
+    { canvas: canvas3, speed: 8, speed_p: 8, opacity: 0.2, y: -h + 80, x: 0 },
+    { canvas: canvas4, speed: 4, speed_p: 4, opacity: 0.1, y: 0, x: 0 },
+    { canvas: canvas4, speed: 4, speed_p: 4, opacity: 0.1, y: -h + 80, x: 0 },
+    { canvas: canvas5, speed: 2, speed_p: 2, opacity: 0.36, y: 0, x: 0 },
+    { canvas: canvas5, speed: 2, speed_p: 2, opacity: 0.36, y: -h + 80, x: 0 },
   ];
 };
 
